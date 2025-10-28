@@ -1,0 +1,136 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "patient_name": {
+      "type": "string",
+      "description": "Patient name"
+    },
+    "hospital_id": {
+      "type": "string",
+      "description": "Hospital ID where report was generated"
+    },
+    "hospital_name": {
+      "type": "string",
+      "description": "Hospital name"
+    },
+    "report_type": {
+      "type": "string",
+      "enum": [
+        "lab_test",
+        "radiology",
+        "prescription",
+        "discharge_summary",
+        "consultation",
+        "surgery",
+        "pathology",
+        "other"
+      ],
+      "description": "Type of medical report"
+    },
+    "report_title": {
+      "type": "string",
+      "description": "Report title/name"
+    },
+    "report_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of report"
+    },
+    "doctor_name": {
+      "type": "string",
+      "description": "Doctor who generated the report"
+    },
+    "findings": {
+      "type": "string",
+      "description": "Medical findings and observations"
+    },
+    "diagnosis": {
+      "type": "string",
+      "description": "Diagnosis"
+    },
+    "recommendations": {
+      "type": "string",
+      "description": "Doctor recommendations"
+    },
+    "medications": {
+      "type": "array",
+      "description": "Prescribed medications",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "dosage": {
+            "type": "string"
+          },
+          "frequency": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "test_results": {
+      "type": "array",
+      "description": "Lab test results",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test_name": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "normal_range": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "abnormal",
+              "critical"
+            ]
+          }
+        }
+      }
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded report file URL"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "final",
+        "reviewed",
+        "archived"
+      ],
+      "default": "final",
+      "description": "Report status"
+    }
+  },
+  "required": [
+    "patient_id",
+    "report_type",
+    "report_title",
+    "report_date"
+  ]
+}
