@@ -1,0 +1,75 @@
+{
+  "name": "Appointment",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "patient_name": {
+      "type": "string",
+      "description": "Patient name"
+    },
+    "hospital_id": {
+      "type": "string",
+      "description": "Hospital ID"
+    },
+    "hospital_name": {
+      "type": "string",
+      "description": "Hospital name"
+    },
+    "doctor_name": {
+      "type": "string",
+      "description": "Assigned doctor name"
+    },
+    "department": {
+      "type": "string",
+      "description": "Medical department/specialty"
+    },
+    "appointment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Appointment date"
+    },
+    "appointment_time": {
+      "type": "string",
+      "description": "Appointment time"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for visit"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "confirmed",
+        "completed",
+        "cancelled",
+        "no_show"
+      ],
+      "default": "scheduled",
+      "description": "Appointment status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "routine",
+        "urgent",
+        "emergency"
+      ],
+      "default": "routine",
+      "description": "Priority level"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "patient_id",
+    "hospital_id",
+    "appointment_date",
+    "department"
+  ]
+}

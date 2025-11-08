@@ -1,0 +1,74 @@
+{
+  "name": "Resource",
+  "type": "object",
+  "properties": {
+    "hospital_id": {
+      "type": "string",
+      "description": "Hospital ID"
+    },
+    "hospital_name": {
+      "type": "string",
+      "description": "Hospital name"
+    },
+    "resource_name": {
+      "type": "string",
+      "description": "Resource name"
+    },
+    "resource_type": {
+      "type": "string",
+      "enum": [
+        "medical_equipment",
+        "staff",
+        "bed",
+        "operation_theater",
+        "ambulance",
+        "laboratory",
+        "other"
+      ],
+      "description": "Type of resource"
+    },
+    "total_quantity": {
+      "type": "number",
+      "description": "Total quantity available"
+    },
+    "available_quantity": {
+      "type": "number",
+      "description": "Currently available quantity"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "available",
+        "limited",
+        "unavailable",
+        "maintenance"
+      ],
+      "default": "available",
+      "description": "Resource status"
+    },
+    "location": {
+      "type": "string",
+      "description": "Location within hospital"
+    },
+    "last_maintenance": {
+      "type": "string",
+      "format": "date",
+      "description": "Last maintenance date"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "hospital_id",
+    "resource_name",
+    "resource_type",
+    "total_quantity",
+    "available_quantity"
+  ]
+}

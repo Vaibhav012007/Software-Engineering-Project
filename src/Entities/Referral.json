@@ -1,0 +1,84 @@
+{
+  "name": "Referral",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "patient_name": {
+      "type": "string",
+      "description": "Patient name"
+    },
+    "from_hospital_id": {
+      "type": "string",
+      "description": "Referring hospital ID"
+    },
+    "from_hospital_name": {
+      "type": "string",
+      "description": "Referring hospital name"
+    },
+    "to_hospital_id": {
+      "type": "string",
+      "description": "Destination hospital ID"
+    },
+    "to_hospital_name": {
+      "type": "string",
+      "description": "Destination hospital name"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for referral"
+    },
+    "department_needed": {
+      "type": "string",
+      "description": "Required medical department"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium",
+      "description": "Referral priority"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "in_transit",
+        "completed",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Referral status"
+    },
+    "medical_summary": {
+      "type": "string",
+      "description": "Brief medical summary"
+    },
+    "required_resources": {
+      "type": "array",
+      "description": "Required medical resources",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transfer_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expected transfer date"
+    }
+  },
+  "required": [
+    "patient_id",
+    "from_hospital_id",
+    "to_hospital_id",
+    "reason",
+    "priority"
+  ]
+}
